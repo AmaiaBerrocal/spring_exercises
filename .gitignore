@@ -2,3 +2,15 @@
 exercises_1_2/.idea/
 
 exercises_1_2/target/classes/
+
+*.xml
+
+.idea/
+
+exercises_4_5_6/.mvn/wrapper/
+
+*.cmd
+
+exercises_4_5_6/mvnw
+
+*.iml
