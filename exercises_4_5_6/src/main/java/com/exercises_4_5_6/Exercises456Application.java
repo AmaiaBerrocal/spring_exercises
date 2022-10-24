@@ -1,7 +1,7 @@
 package com.exercises_4_5_6;
 
-import com.exercises_4_5_6.infrastructure.LaptopRepository;
-import com.exercises_4_5_6.model.Laptop;
+import com.exercises_4_5_6.repository.LaptopRepository;
+import com.exercises_4_5_6.entities.Laptop;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

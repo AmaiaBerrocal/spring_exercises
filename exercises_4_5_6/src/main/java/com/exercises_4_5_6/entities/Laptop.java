@@ -1,4 +1,4 @@
-package com.exercises_4_5_6.model;
+package com.exercises_4_5_6.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    Long id;
     String fabricante;
     String modelo;
     Integer tamaño;
@@ -18,7 +18,7 @@ public class Laptop {
     public Laptop() {
     }
 
-    public Laptop(Integer id, String fabricante, String modelo, Integer tamaño, Integer año) {
+    public Laptop(Long id, String fabricante, String modelo, Integer tamaño, Integer año) {
         this.id = id;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -26,11 +26,11 @@ public class Laptop {
         this.año = año;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
