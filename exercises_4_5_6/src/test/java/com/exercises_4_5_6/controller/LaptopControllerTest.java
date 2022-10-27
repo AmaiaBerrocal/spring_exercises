@@ -48,13 +48,19 @@ class LaptopControllerTest {
 
 
     @Test
-    void findOneById() {
-        ResponseEntity<Laptop[]> response =
-                testRestTemplate.getForEntity("/laptops/1", Laptop[].class);
+    void findOneByInexistentId() {
+        ResponseEntity<Laptop> response =
+                testRestTemplate.getForEntity("/laptops/66666", Laptop.class);
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-        assertEquals(200, response.getStatusCodeValue());
+    }
 
+    @Test
+    void findOneById() {
+        ResponseEntity<Laptop> response =
+                testRestTemplate.getForEntity("/laptops/1", Laptop.class);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
@@ -65,11 +71,11 @@ class LaptopControllerTest {
 
         String json = """
                 {
-                "fabricante": "aaaaaaa",
-                "modelo": "eeeeee",
-                "tamaño": 45,
-                "año": 2156
-                }
+                       "fabricante": "Dell",
+                       "modelo": "lala201",
+                       "tamaño": 14,
+                       "año": 2001
+                   }
                 """;
 
         HttpEntity<String> request = new HttpEntity<>(json, headers);
@@ -78,6 +84,6 @@ class LaptopControllerTest {
         Laptop result = response.getBody();
 
         assertEquals(1L, result.getId());
-        assertEquals("aaaaaaa", result.getFabricante());
+        assertEquals("Dell", result.getFabricante());
     }
 }
