@@ -4,6 +4,7 @@ import com.exercises_4_5_6.entities.Laptop;
 import com.exercises_4_5_6.repository.LaptopRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +20,12 @@ public class LaptopController {
         this.laptopRepository = laptopRepository;
     }
 
+    @Value("${app.message}")
+    String message;
+    
     @GetMapping("/laptops")
     public List<Laptop> findAll()  {
-
+        System.out.println(message);
         return laptopRepository.findAll();
     }
 
